@@ -1,4 +1,4 @@
-import cats.data.EitherT
+import cats.data.{EitherT, NonEmptyMap}
 import cats.syntax.all._
 
 import scala.concurrent.Future
@@ -28,7 +28,6 @@ object EitherSample {
     }
   }
 
-
   // with EitherT
   def divisionProgramAsync(inputA: String, inputB: String): EitherT[Future, String, Double] = {
     for {
@@ -37,5 +36,12 @@ object EitherSample {
       result <- EitherT(divide(a, b))
     } yield result
   }
+
+  // From Option[B] or F[Option[B]] to EitherT[F, A, B]
+  val myOption = None
+  val myOptionET = EitherT.fromOption[Future](myOption, "option not defined")
+
+  val myOptionList: List[Option[Int]] = List(None, Some(2), Some(5))
+  val myOptionListET = EitherT.fromOptionF(myOptionList, "option not defined")
 
 }
