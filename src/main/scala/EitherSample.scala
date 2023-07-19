@@ -44,4 +44,8 @@ object EitherSample {
   val myOptionList: List[Option[Int]] = List(None, Some(2), Some(5))
   val myOptionListET = EitherT.fromOptionF(myOptionList, "option not defined")
 
+  // semiFlatMap Sample
+  val eitherT: EitherT[Future, String, Int] = EitherT.right(Future.successful(32))
+  val result = eitherT.semiflatMap(num => Future.successful(num * 2))
+
 }
