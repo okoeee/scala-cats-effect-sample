@@ -1,6 +1,4 @@
-import scala.concurrent.{Await, Future}
-import scala.util.Try
-import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.Await
 import scala.concurrent.duration.Duration
 
 object Main extends App {
