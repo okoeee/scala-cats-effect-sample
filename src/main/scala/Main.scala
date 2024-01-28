@@ -5,6 +5,6 @@ import scala.concurrent.duration.Duration
 
 object Main extends App {
 
-  ValidatedSample.executeWithEither()
+  ValidatedSample.executeWithValidated()
 
 }
