@@ -22,6 +22,7 @@ object Sample {
       _ <- EitherT.right[String](Future.successful(42))
       _ <- EitherT.left[String](Future.successful("Error"))
       _ <- EitherT.rightT[Future, String](1)
+      _ <- EitherT.fromEither[Future](Right(1))
       _ <- EitherT.fromOption[Future](Option(1), "Error")
       _ <- EitherT.fromOptionM[Future, String, Int](Future.successful(Option(2)), Future.successful("Error"))
       _ <- EitherT.fromOptionF[Future, String, Int](Future.successful(Option(2)), "Error")
